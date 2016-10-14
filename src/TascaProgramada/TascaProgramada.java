@@ -22,7 +22,7 @@ public class TascaProgramada {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         
        // ImprimeixExecucioTasca imprimirTasca = new ImprimeixExecucioTasca();
         
@@ -34,5 +34,8 @@ public class TascaProgramada {
         ImprimeixExecucioTasca imprimir = new ImprimeixExecucioTasca();
         
        sch.scheduleWithFixedDelay( imprimir, 2, 3, TimeUnit.SECONDS);
+       
+       sch.awaitTermination(20, TimeUnit.SECONDS);
+       sch.shutdown();
     }
 }
